@@ -1,0 +1,111 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('index_img.jpg');
+  background-size: cover;
+  background-position: center;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+}
+
+h1 {
+  color: #008080;
+  font-size: 24px;
+}
+
+form {
+  margin: 20px 0;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  resize: none;
+}
+
+button {
+  background-color: #008080;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #005555;
+}
+
+#ideas {
+  width: 70%;
+  margin: 20px auto;
+}
+
+#ideas p {
+  background-color: #f0f0f0;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 5px;
+  position: relative;
+}
+
+.author-name {
+  font-weight: bold;
+}
+
+.view-ideas-button,
+like-button {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  padding: 5px 10px;
+  background-color: #008080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+.view-ideas-button:hover,
+like-button:hover {
+  background-color: #005555;
+}
+
+.project-info {
+  margin-top: 20px;
+}
+
+.project-info h2 {
+  color: #008080;
+  font-size: 20px;
+}
+
+.project-info p {
+  font-size: 16px;
+}
+

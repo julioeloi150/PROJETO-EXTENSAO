@@ -1,0 +1,53 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="{% static 'ToolsPage/idealist_styles.css' %}" />
+</head>
+<body>
+
+  <div id="left-section">
+    <img src="{% static 'ToolsPage/idea_img.png' %}" alt="Imagem Vertical Representando Ideias" />
+  </div>
+
+  <div id="middle-section">
+    {% for ideia in ideias %}
+    <div class="box" data-idea-id="{{ ideia.id }}" data-author="{{ ideia.author_name }}" data-idea="{{ ideia.idea_text }}" data-date="{{ ideia.created_at|date:'F d, Y' }}" data-likes="{{ ideia.likes }}">
+      <div class="box-content">
+        <p class="author">{{ ideia.author_name }}</p>
+        <p class="idea-preview">{{ ideia.idea_text|slice:":25" }}{% if ideia.idea_text|length > 25 %}...{% endif %}</p>
+        <p class="date-likes">Data: {{ ideia.created_at|date:'d/m/y' }} | Curtidas: <span class="like-count">{{ ideia.likes }}</span></p>
+        <div class="actions">
+          <button class="like-button" onclick="likeIdea(this, '{{ ideia.id }}')">Curtir</button>
+          <a class="popup-link" href="#" onclick="showPopup('{{ ideia.author_name }}', '{{ ideia.idea_text|escapejs }}', '{{ ideia.created_at|date:"d/m/y" }}', {{ ideia.likes }}, '{{ ideia.id }}')">Detalhes</a>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div id="right-section">
+    <h2>Ideias Mais Curtidas:</h2>
+    <ol>
+      {% for ideia in ideias|slice:":10" %}
+      <li>{{ ideia.author_name }} - {{ ideia.idea_text }}</li>
+      {% endfor %}
+    </ol>
+  </div>
+
+  <!-- Popup -->
+  <div id="overlay"></div>
+  <div class="popup" id="popup">
+    <span id="close-btn" onclick="hidePopup()">&times;</span>
+    <h3>Detalhes da Ideia</h3>
+    <p id="popup-content"></p>
+    <p id="popup-date"></p>
+    <p id="popup-likes"></p>
+    <button class="like-button-popup" id="popup-like-button" onclick="likeIdeaPopup()">Curtir</button>
+  </div>
+  <script src="{% static 'ToolsPage/idea_script.js' %}"></script>
+</body>
+</html>

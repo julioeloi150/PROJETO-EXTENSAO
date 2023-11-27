@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ToolsPage/index.styles.css' %}"
+    />
+    <script src="{% static 'ToolsPage/script.js' %}"></script>
+    <title>Participa José e Maria - Envie sua Ideia</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Participa José e Maria - Envie sua Ideia</h1>
+      </header>
+      <section class="main-content">
+        <form id="ideaForm" method="post" action="{% url 'submit-idea' %}">
+          {% csrf_token %}
+          <label for="authorName">Seu Nome:</label>
+          <input type="text" id="authorName" name="authorName" required />
+          <label for="idea">Compartilhe sua ideia:</label>
+          <textarea id="idea" name="idea" rows="5" required></textarea>
+          <button type="submit">Enviar Ideia</button>
+        </form>
+        <div class="project-info">
+          <h2>Saiba Mais Sobre o Projeto</h2>
+          <p>
+            O Participa José e Maria é uma plataforma criada para incentivar a
+            participação ativa dos moradores do José e Maria no planejamento e
+            desenvolvimento sustentável do bairro. Compartilhe suas ideias e
+            ajude-nos a tornar a comunidade do José e Maria um lugar melhor para
+            todos!
+          </p>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{% static 'ToolsPage/obg_styles.css' %}"
+    />
+    <script src="{% static 'ToolsPage/script.js' %}"></script>
+    <title>Muito Obrigado!!!</title>
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Obrigado por compartilhar sua ideia!</h1>
+      </header>
+      <section class="main-content">
+        <p>
+          Sua contribuição é fundamental para tornar a comunidade do bairro José
+          e Maria cada vez melhor. Agradecemos por sua participação ativa no
+          planejamento e desenvolvimento sustentável do nosso bairro.
+        </p>
+        <p>
+          Contribua votando nas ideias mais curtidas para que possamos levá-las
+          adiante.
+        </p>
+        <a href="{% url 'ideas' %}" class="btn">Ver Outras Ideias</a>
+      </section>
+    </div>
+  </body>
+</html>
